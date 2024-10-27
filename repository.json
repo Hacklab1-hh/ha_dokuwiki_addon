@@ -1,4 +1,12 @@
 {
   "name": "Dokuwiki Add-on Repository",
   "url": "https://github.com/Hacklab1-hh/ha_dokuwiki_addon"
+  "maintainer": "Hacklab1",
+  "description": "Repository für das Dokuwiki Add-on und weitere Home Assistant Add-ons",
+  "homeassistant_min_version": "2023.9.0",
+  "arch": [
+    "amd64",
+    "armv7",
+    "aarch64"
+  ]
 }
