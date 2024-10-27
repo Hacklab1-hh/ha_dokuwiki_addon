@@ -1,0 +1,76 @@
+name: "Dokuwiki"
+version: "1.0"
+slug: "dokuwiki"
+description: "Dokuwiki Add-on for Home Assistant"
+arch:
+  - amd64
+  - armv7
+startup: "application"
+init: false
+host_network: false
+logo: "logo.png"    # Verweis auf das Logo
+icon: "icon.png"    # Verweis auf das Symbol
+options:
+  port: 8080
+  admin_user: "admin"
+  admin_password: ""
+  wiki_name: "Mein DokuWiki"
+  wiki_license: "GPL"
+  wiki_language: "de"
+  wiki_timezone: "Europe/Berlin"
+  base_url: ""
+  smtp_server: ""
+  smtp_port: 587
+  smtp_user: ""
+  smtp_password: ""
+schema:
+  port:
+    type: int
+    name: "Port (optional)"
+  admin_user:
+    type: str
+    name: "Administrator-Benutzername (optional)"
+  admin_password:
+    type: str
+    name: "Administrator-Passwort (optional)"
+  wiki_name:
+    type: str
+    name: "Wiki-Name (optional)"
+  wiki_license:
+    type: select
+    name: "Wiki-Lizenz"
+    values:
+      - "GPL"
+      - "MIT"
+      - "Apache"
+      - "BSD"
+  wiki_language:
+    type: str
+    name: "Wiki-Sprache (optional)"
+  wiki_timezone:
+    type: str
+    name: "Zeitzone (optional)"
+  base_url:
+    type: str
+    name: "Basis-URL (optional)"
+  smtp_server:
+    type: str
+    name: "SMTP-Server (optional)"
+  smtp_port:
+    type: int
+    name: "SMTP-Port (optional)"
+  smtp_user:
+    type: str
+    name: "SMTP-Benutzername (optional)"
+  smtp_password:
+    type: str
+    name: "SMTP-Passwort (optional)"
+map:
+  config: true
+  ssl: false
+  addons: true
+  backup: true
+  share: true
+volumes:
+  - /config/dokuwiki_data:/dokuwiki/data  # Persistenter Speicherort für Inhalte
+  - /config/dokuwiki_config:/opt/bitnami/dokuwiki/conf  # Konfigurationsdateien
